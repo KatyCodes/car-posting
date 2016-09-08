@@ -6,7 +6,10 @@
     </head>
     <body>
         <h1>Thank you for placing your add.</h1>
-        <h3>your listing{{ car.price }}</h3>
+        <h3>your listing</h3>
+        <img src="{{car.image}}" alt="{{car.make_model}}" />
+        Your add for a {{car.make_model}} has been posted.
+        <a href="/"><button type="button" name="button">Add Another Car</button></a>
 
     </body>
 </html>

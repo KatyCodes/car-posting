@@ -15,18 +15,18 @@
     ));
 
     $app->get("/", function() use ($app) {
-
-      if(!empty($_SESSION['allCars'])){
-        var_dump($_SESSION['allCars']);
-      }
-      return $app['twig']->render('home.html.twig', array('car'=>Car::getAll()));
+      return $app['twig']->render('home.html.twig', array('cars' => Car::getAll()));
      });
 
      $app->post("/new_car", function() use ($app) {
-       $new_car = new Car($_POST['make'], $_POST['miles'], $_POST['image'], $_POST['price']);
+       $new_car = new Car($_POST['make'], $_POST['price'], $_POST['miles'], $_POST['image']);
        $new_car->save();
        return $app['twig']->render('newcaradd.html.twig', array('car' => $new_car));
       });
+      $app->post("/delete", function() use ($app) {
+        Car::deleteAll();
+        return $app['twig']->render('delete.html.twig');
+       });
 
     return $app;
 ?>
