@@ -5,6 +5,7 @@
         <title>Buy a Car</title>
     </head>
     <body>
+      <h1><em>Lets buy a car</em></h1>
       {% if cars is not empty %}
        <h3>Cars for sale</h3>
           <div class="">
@@ -16,7 +17,6 @@
           </div>
           {% endfor %}
       {% endif %}
-        <h1>Lets buy a car</h1>
         <form class="" action="/new_car" method="post">
           <label for="">Make</label>
           <input type="text" name="make" value="">
